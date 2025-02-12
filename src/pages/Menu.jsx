@@ -4,6 +4,7 @@ import { StarIcon, FireIcon, SparklesIcon } from "@heroicons/react/24/solid";
 import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/24/outline";
 import GallerySection from "../components/GallerySection";
 import MenuSection from "../components/MenuSection";
+import { Link } from "react-router-dom";
 
 export default function Menu() {
   const categories = [
@@ -68,6 +69,10 @@ export default function Menu() {
     },
   ];
 
+  const handleScrollToMenu = () => {
+    window.scrollTo({ top: 700, behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -98,7 +103,12 @@ export default function Menu() {
                 ingredients
               </p>
               <div className="flex gap-4">
-                <Button size="lg" color="primary" className="font-medium">
+                <Button
+                  size="lg"
+                  color="primary"
+                  className="font-medium"
+                  onPress={handleScrollToMenu}
+                >
                   View Menu
                 </Button>
                 <Button
@@ -106,7 +116,7 @@ export default function Menu() {
                   variant="bordered"
                   className="text-white border-white hover:bg-white/10"
                 >
-                  Make Reservation
+                  <Link to="/reservation">Make Reservation</Link>
                 </Button>
               </div>
             </motion.div>
